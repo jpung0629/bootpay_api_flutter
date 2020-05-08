@@ -2,8 +2,8 @@
 
 # bootpay_api
 
-부트페이 플러터 플러그인입니다. 부트페이를 통해 여러 PG사를 쉽게 연동하실 수 있습니다. 
-
+부트페이에서 관리하는 공식 플러터 플러그인입니다. 
+기존의 bootpay_flutter 모듈을 fork 하여 만들었습니다.
 
 ### 지원하는 PG사 
 	1. 이니시스
@@ -17,6 +17,49 @@
 	9. 네이버페이
 	10. 카카오페이
 	11. 페이코
+	
+
+## Getting Started
+Add the module to your project ``pubspec.yaml``:
+```yaml
+...
+dependencies:
+ ...
+ bootpay_api: last_version
+...
+```
+And install it using ``flutter packages get`` on your project folder. After that, just import the module and use it:
+
+## Settings
+
+### Android
+No configuration required.
+
+### iOS
+** {your project root}/ios/Runner/Info.plist **
+
+```xml
+<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>kr.co.bootpaySample</string> // 사용하고자 하시는 앱의 bundle url name
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>bootpaySample</string> // 사용하고자 하시는 앱의 bundle url scheme
+            </array>
+        </dict>
+    </array>
+```
+
+Done!
 
 ## Getting Started
 
