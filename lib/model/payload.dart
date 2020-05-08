@@ -5,6 +5,7 @@ class Payload {
   String iosApplicationId = '';
 
   String applicationId = '';
+
 //  String rest_application_id; //해당 기능은 이해를 돕기위해 제공할 뿐, flutter에서 절대로 사용해서는 안됩니다
 
   String pg = '';
@@ -28,7 +29,7 @@ class Payload {
   int smsUse = 0;
   String userToken = '';
 
-  Payload(){
+  Payload() {
     this.methods = new List();
     this.params = new Map();
   }
@@ -59,8 +60,7 @@ class Payload {
     userToken = json["user_token"];
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "application_id": this.applicationId,
         "pg": this.pg,
         "method": this.method,
@@ -70,7 +70,8 @@ class Payload {
         "tax_free": this.taxFree,
         "order_id": this.orderId,
         "use_order_id": this.useOrderId,
-        "params": Platform.isAndroid == true ? this.params.toString() : this.params,
+        "params":
+            Platform.isAndroid == true ? this.params.toString() : this.params,
         "account_expire_at": this.accountExpireAt,
         "show_agree_window": this.showAgreeWindow,
         "ux": this.ux,
@@ -84,14 +85,15 @@ class Payload {
   }
 
   String getParamsString() {
-    if(params == null) return "{}";
+    if (params == null) return "{}";
     return reVal(params.toString());
   }
 
   String reVal(dynamic value) {
-
-    if(value is String) {
-      if(value.isEmpty) { return ''; }
+    if (value is String) {
+      if (value.isEmpty) {
+        return '';
+      }
       return value.replaceAll("\"", "'").replaceAll("'", "\\'");
     } else {
       return value;
@@ -99,10 +101,10 @@ class Payload {
   }
 
   String getMethods() {
-    if(methods == null || methods.isEmpty) return '';
+    if (methods == null || methods.isEmpty) return '';
     String result = '';
-    for(String method in methods) {
-      if(result.length > 0) result += ',';
+    for (String method in methods) {
+      if (result.length > 0) result += ',';
       result += method;
     }
     return result;

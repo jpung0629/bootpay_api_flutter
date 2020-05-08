@@ -21,24 +21,25 @@ class User {
     area = json["area"];
   }
 
-  Map<String, dynamic> toJson() =>
-    {
-      "id": this.id,
-      "username": this.username,
-      "email": this.email,
-      "gender": this.gender,
-      "birth": this.birth,
-      "phone": this.phone,
-      "area": this.area,
-    };
+  Map<String, dynamic> toJson() => {
+        "id": this.id,
+        "username": this.username,
+        "email": this.email,
+        "gender": this.gender,
+        "birth": this.birth,
+        "phone": this.phone,
+        "area": this.area,
+      };
 
   String toString() {
     return "{id: '${reVal(id)}', username: '${reVal(username)}', email: '${reVal(email)}', gender: ${reVal(gender)}, birth: '${reVal(birth)}', phone: '${reVal(phone)}', area: '${reVal(area)}'}";
   }
 
   String reVal(dynamic value) {
-    if(value is String) {
-      if(value.isEmpty) { return ''; }
+    if (value is String) {
+      if (value.isEmpty) {
+        return '';
+      }
       return value.replaceAll("\"", "'").replaceAll("'", "\\'");
     } else {
       return value;

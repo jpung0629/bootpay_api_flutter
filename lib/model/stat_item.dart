@@ -1,5 +1,3 @@
-
-
 class StatItem {
   String itemName = '';
   int itemImg = 0;

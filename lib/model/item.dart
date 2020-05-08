@@ -20,8 +20,7 @@ class Item {
     cat3 = json["cat3"];
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "item_name": this.itemName,
         "qty": this.qty,
         "unique": this.unique,
@@ -36,8 +35,10 @@ class Item {
   }
 
   String reVal(dynamic value) {
-    if(value is String) {
-      if(value.isEmpty) { return ''; }
+    if (value is String) {
+      if (value.isEmpty) {
+        return '';
+      }
       return value.replaceAll("\"", "'").replaceAll("'", "\\'");
     } else {
       return value;

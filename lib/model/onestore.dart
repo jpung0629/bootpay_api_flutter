@@ -3,7 +3,6 @@ class Onestore {
   String simOperator = "UNKNOWN_SIM_OPERATOR";
   String installerPackageName = "UNKNOWN_INSTALLER";
 
-
   Onestore();
 
   Onestore.fromJson(Map<String, dynamic> json) {

@@ -14,7 +14,6 @@ class Extra {
   String dispCashResult = 'Y';
   int escrow = 0;
 
-
   Extra();
 
   Extra.fromJson(Map<String, dynamic> json) {
@@ -36,43 +35,41 @@ class Extra {
 //    onestore = json["onestore"];
   }
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         "start_at": this.startAt,
         "end_at": this.endAt,
         "expire_month": this.expireMonth,
         "vbank_result": this.vbankResult,
         "quotas": this.quotas,
-
         "app_scheme": this.appScheme,
         "app_scheme_host": this.appSchemeHost,
         "locale": this.locale,
-
         "popup": this.popup,
         "disp_cash_result": this.dispCashResult,
         "escrow": this.escrow,
       };
 
   String getQuotas() {
-    if(quotas == null || quotas.isEmpty) return '';
+    if (quotas == null || quotas.isEmpty) return '';
     String result = '';
-    for(int quota in quotas) {
-      if(result.length > 0) result += ',';
+    for (int quota in quotas) {
+      if (result.length > 0) result += ',';
       result += quota.toString();
     }
     return result;
   }
 
-
   String toString() {
-    return "{start_at: '${reVal(startAt)}', end_at: '${reVal(endAt)}', expire_month: ${reVal(expireMonth)}, vbank_result: ${reVal(vbankResult)},"
-        + "quotas: '${getQuotas()}', app_scheme: '${reVal(appScheme)}', app_scheme_host: '${reVal(appSchemeHost)}', locale: '${reVal(locale)}',"
-        + "popup: ${reVal(popup)}, disp_cash_result: '${reVal(dispCashResult)}', escrow: ${reVal(escrow)}}";
+    return "{start_at: '${reVal(startAt)}', end_at: '${reVal(endAt)}', expire_month: ${reVal(expireMonth)}, vbank_result: ${reVal(vbankResult)}," +
+        "quotas: '${getQuotas()}', app_scheme: '${reVal(appScheme)}', app_scheme_host: '${reVal(appSchemeHost)}', locale: '${reVal(locale)}'," +
+        "popup: ${reVal(popup)}, disp_cash_result: '${reVal(dispCashResult)}', escrow: ${reVal(escrow)}}";
   }
 
   String reVal(dynamic value) {
-    if(value is String) {
-      if(value.isEmpty) { return ''; }
+    if (value is String) {
+      if (value.isEmpty) {
+        return '';
+      }
       return value.replaceAll("\"", "'").replaceAll("'", "\\'") ?? '';
     } else {
       return value.toString() ?? 0;
