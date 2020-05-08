@@ -1,3 +1,6 @@
+## 1.0.6
+* update License 
+
 ## 1.0.5
 * update pubspec.yaml 
 
