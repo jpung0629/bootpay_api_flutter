@@ -1,4 +1,4 @@
-![payment window_1](https://docs.bootpay.co.kr/assets/deep/easy/2-0006cfc2d14afd078753986ab28d2ebc21e27feca8c33aba919eb8fee9ee55e5.png){:height="36px" width="36px"}.
+![payment window_1](https://docs.bootpay.co.kr/assets/online/onestore-145efaf06e9a3b1a93d07bbe174b2394f50373e9334a3205174676a181acf5b0.png)
 
 # bootpay_api
 
