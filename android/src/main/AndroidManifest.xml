@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="kr.co.bootpay.bootpay_api">
+
+    <application>
+        <activity android:name="kr.co.bootpay.bootpay_api.BootpayActivity" android:theme="@style/Theme.AppCompat"/>
+    </application>
+</manifest>

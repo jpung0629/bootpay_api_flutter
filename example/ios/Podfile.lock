@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (5.1.0)
+  - bootpay_api (0.0.1):
+    - Flutter
+    - SwiftyBootpay (= 3.2.43)
+  - CryptoSwift (1.3.1)
+  - Flutter (1.0.0)
+  - ObjectMapper (3.5.2)
+  - SwiftyBootpay (3.2.43):
+    - Alamofire (~> 5.1.0)
+    - CryptoSwift
+    - ObjectMapper
+
+DEPENDENCIES:
+  - bootpay_api (from `.symlinks/plugins/bootpay_api/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CryptoSwift
+    - ObjectMapper
+    - SwiftyBootpay
+
+EXTERNAL SOURCES:
+  bootpay_api:
+    :path: ".symlinks/plugins/bootpay_api/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  bootpay_api: d76bafb13e3a263e1f5fe1b19d2288b1e7365d8a
+  CryptoSwift: f12f037f6d0fcd6d48c96db0071b653de64e6c4d
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  SwiftyBootpay: 866b778a3a40b4399a0f5c5b46b43181bdf924b3
+
+PODFILE CHECKSUM: 73d69d282a87aa0aafabdecb47f632fc347a9aac
+
+COCOAPODS: 1.9.1
