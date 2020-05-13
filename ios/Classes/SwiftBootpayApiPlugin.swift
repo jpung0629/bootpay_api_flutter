@@ -22,13 +22,18 @@ public class SwiftBootpayApiPlugin: NSObject, FlutterPlugin {
 
  func goBootpayController(_ params: Dictionary<String, Any>, result: @escaping FlutterResult) {
  
-
    let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+   let navigationController = UINavigationController()
+    
    let vc = BootpayViewController()
    vc.params = params;
    vc.flutterResult = result
    vc.modalPresentationStyle = .fullScreen
    rootViewController?.present(vc, animated: true, completion: nil)
+ }
+    
+ @objc func popViewController(animated: Bool) {
+    print(animated)
  }
 
 

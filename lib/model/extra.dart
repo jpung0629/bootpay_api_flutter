@@ -13,6 +13,7 @@ class Extra {
   int popup = 0;
   String dispCashResult = 'Y';
   int escrow = 0;
+  bool iosCloseButton = true;
 
   Extra();
 
@@ -31,8 +32,7 @@ class Extra {
     popup = json["popup"];
     dispCashResult = json["disp_cash_result"];
     escrow = json["escrow"];
-
-//    onestore = json["onestore"];
+    iosCloseButton = json["iosCloseButton"];
   }
 
   Map<String, dynamic> toJson() => {
@@ -47,6 +47,7 @@ class Extra {
         "popup": this.popup,
         "disp_cash_result": this.dispCashResult,
         "escrow": this.escrow,
+        "iosCloseButton": this.iosCloseButton,
       };
 
   String getQuotas() {
@@ -62,7 +63,7 @@ class Extra {
   String toString() {
     return "{start_at: '${reVal(startAt)}', end_at: '${reVal(endAt)}', expire_month: ${reVal(expireMonth)}, vbank_result: ${reVal(vbankResult)}," +
         "quotas: '${getQuotas()}', app_scheme: '${reVal(appScheme)}', app_scheme_host: '${reVal(appSchemeHost)}', locale: '${reVal(locale)}'," +
-        "popup: ${reVal(popup)}, disp_cash_result: '${reVal(dispCashResult)}', escrow: ${reVal(escrow)}}";
+        "popup: ${reVal(popup)}, disp_cash_result: '${reVal(dispCashResult)}', escrow: ${reVal(escrow)}, iosCloseButton: $iosCloseButton}";
   }
 
   String reVal(dynamic value) {

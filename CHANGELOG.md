@@ -1,3 +1,6 @@
+## 1.0.7
+* 아이폰용 닫기 버튼을 옵션으로 추가함. extra.iosCloseButton = false/true;
+
 ## 1.0.6
 * update License 
 

@@ -53,6 +53,7 @@ class BootpayApi {
     String method = result["method"];
     if (method == null) method = result["action"];
     String message = result["message"];
+    if (message == null) message = result["msg"];
 
     if (method == 'onDone' || method == 'BootpayDone') {
       if (onDone != null) onDone(message);
