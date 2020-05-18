@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -52,9 +53,13 @@ class BootpayApi {
 
     String method = result["method"];
     if (method == null) method = result["action"];
+
     String message = result["message"];
     if (message == null) message = result["msg"];
 
+//    print(result);
+
+    //confirm 생략
     if (method == 'onDone' || method == 'BootpayDone') {
       if (onDone != null) onDone(message);
     } else if (method == 'onReady' || method == 'BootpayReady') {
@@ -63,6 +68,8 @@ class BootpayApi {
       if (onCancel != null) onCancel(message);
     } else if (method == 'onError' || method == 'BootpayError') {
       if (onError != null) onError(message);
-    } //confirm 생략
+    } else if (result['receipt_id'] != null && result['receipt_id'].isNotEmpty) {
+      if (onDone != null) onDone(jsonEncode(result));
+    }
   }
 }

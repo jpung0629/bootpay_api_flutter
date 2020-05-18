@@ -15,7 +15,7 @@ Bootpay Flutter plugin.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'SwiftyBootpay', '3.2.45'
+  s.dependency 'SwiftyBootpay', '3.2.46'
 
   s.static_framework = true
   # s.platform = :ios, '11.0'

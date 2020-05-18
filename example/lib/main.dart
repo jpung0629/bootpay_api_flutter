@@ -34,26 +34,6 @@ class TestPageState extends State<TestPage> {
 //    initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-//  Future<void> initPlatformState() async {
-//    String platformVersion;
-//    // Platform messages may fail, so we use a try/catch PlatformException.
-//    try {
-//      platformVersion = await BootpayApi.platformVersion;
-//    } on PlatformException {
-//      platformVersion = 'Failed to get platform version.';
-//    }
-//
-//    // If the widget was removed from the tree while the asynchronous platform
-//    // message was in flight, we want to discard the reply rather than calling
-//    // setState to update our non-existent appearance.
-//    if (!mounted) return;
-//
-//    setState(() {
-//      _platformVersion = platformVersion;
-//    });
-//  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +74,7 @@ class TestPageState extends State<TestPage> {
     user.email = "user1234@gmail.com";
     user.area = "서울";
     user.phone = "010-1234-4567";
+    user.addr = '서울시 동작구 상도로 222';
 
     Extra extra = Extra();
     extra.appScheme = 'bootpayFlutterSample';
@@ -118,16 +99,16 @@ class TestPageState extends State<TestPage> {
       user: user,
       items: itemList,
       onDone: (String json) {
-        print('onDone: $json');
+        print('--- onDone: $json');
       },
       onReady: (String json) {
-        print('onReady: $json');
+        print('--- onReady: $json');
       },
       onCancel: (String json) {
-        print('onCancel: $json');
+        print('--- onCancel: $json');
       },
       onError: (String json) {
-        print('onError: $json');
+        print(' --- onError: $json');
       },
     );
   }

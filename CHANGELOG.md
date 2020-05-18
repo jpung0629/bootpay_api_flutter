@@ -1,3 +1,6 @@
+## 1.0.8
+* onDone이 호출되지 않는 버그를 수정하였습니다.
+
 ## 1.0.7
 * 아이폰용 닫기 버튼을 옵션으로 추가함. extra.iosCloseButton = false/true;
 
