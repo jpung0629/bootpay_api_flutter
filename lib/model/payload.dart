@@ -60,8 +60,15 @@ class Payload {
     userToken = json["user_token"];
   }
 
+  getApplicationId() {
+    if(this.applicationId != null && this.applicationId.isNotEmpty) return this.applicationId;
+    if(Platform.isAndroid) return this.androidApplicationId;
+    else if(Platform.isIOS) return this.iosApplicationId;
+    else return this.applicationId ?? '';
+  }
+
   Map<String, dynamic> toJson() => {
-        "application_id": this.applicationId,
+        "application_id": getApplicationId(),
         "pg": this.pg,
         "method": this.method,
         "methods": this.methods,

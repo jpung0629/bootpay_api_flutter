@@ -29,6 +29,7 @@ class BootpayApi {
       StringCallback onReady,
       StringCallback onCancel,
       StringCallback onError}) async {
+
     payload.applicationId = Platform.isAndroid
         ? payload.androidApplicationId
         : payload.iosApplicationId;
@@ -44,12 +45,12 @@ class BootpayApi {
       "extra": extra.toJson()
     };
 
-//    print(params);
 
     Map<dynamic, dynamic> result = await _channel.invokeMethod(
       "bootpayRequest",
       params,
     );
+
 
     String method = result["method"];
     if (method == null) method = result["action"];
@@ -57,7 +58,7 @@ class BootpayApi {
     String message = result["message"];
     if (message == null) message = result["msg"];
 
-//    print(result);
+
 
     //confirm 생략
     if (method == 'onDone' || method == 'BootpayDone') {
