@@ -33,6 +33,7 @@ flutter:
         pluginClass: BootpayApiPlugin
       ios:
         pluginClass: BootpayApiPlugin
+
 #    androidPackage: kr.co.bootpay.bootpay_api
 #    pluginClass: BootpayApiPlugin
 
