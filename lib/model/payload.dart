@@ -1,6 +1,6 @@
 import 'dart:io';
 
-class BootpayPayload {
+class Payload {
   String androidApplicationId = '';
   String iosApplicationId = '';
 
@@ -29,12 +29,12 @@ class BootpayPayload {
   int smsUse = 0;
   String userToken = '';
 
-  BootpayPayload() {
+  Payload() {
     this.methods = new List();
     this.params = new Map();
   }
 
-  BootpayPayload.fromJson(Map<String, dynamic> json) {
+  Payload.fromJson(Map<String, dynamic> json) {
     androidApplicationId = json["android_application_id"];
     iosApplicationId = json["ios_application_id"];
 
@@ -62,9 +62,8 @@ class BootpayPayload {
 
   getApplicationId() {
     if(this.applicationId != null && this.applicationId.isNotEmpty) return this.applicationId;
-    if(Platform.isAndroid) return this.androidApplicationId;
-    else if(Platform.isIOS) return this.iosApplicationId;
-    else return this.applicationId ?? '';
+    if(Platform.isIOS) return this.iosApplicationId;
+    else return this.androidApplicationId;
   }
 
   Map<String, dynamic> toJson() => {

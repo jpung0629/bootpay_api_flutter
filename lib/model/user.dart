@@ -1,4 +1,4 @@
-class BootpayUser {
+class User {
   String id = '';
   String username = '';
   String email = '';
@@ -9,9 +9,9 @@ class BootpayUser {
   String area = '';
   String addr = '';
 
-  BootpayUser();
+  User();
 
-  BootpayUser.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     username = json["username"];
     email = json["email"];

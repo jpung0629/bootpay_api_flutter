@@ -1,3 +1,6 @@
+## 1.1.11
+* rename을 롤백함, 클래스명 혼동에 의한 버그는 아닌것으로 추측함. platform.isandroid임을 인식못하는 현상이 있지 않을까 추측중   
+
 ## 1.1.1
 * 출시 후 application_id가 비어있는 버그가 있다는 이슈처리를 위해, model class를 rename 함  
 

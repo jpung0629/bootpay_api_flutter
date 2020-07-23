@@ -21,22 +21,22 @@ class BootpayApi {
     return version;
   }
 
-  static Future<void> request(BuildContext context, BootpayPayload payload,
-      {BootpayUser user,
-      List<BootpayItem> items,
-      BootpayExtra extra,
+  static Future<void> request(BuildContext context, Payload payload,
+      {User user,
+      List<Item> items,
+      Extra extra,
       StringCallback onDone,
       StringCallback onReady,
       StringCallback onCancel,
       StringCallback onError}) async {
 
-    payload.applicationId = Platform.isAndroid
-        ? payload.androidApplicationId
-        : payload.iosApplicationId;
+    payload.applicationId = Platform.isIOS
+        ? payload.iosApplicationId
+        : payload.androidApplicationId;
 
-    if (user == null) user = BootpayUser();
+    if (user == null) user = User();
     if (items == null) items = [];
-    if (extra == null) extra = BootpayExtra();
+    if (extra == null) extra = Extra();
 
     Map<String, dynamic> params = {
       "payload": payload.toJson(),

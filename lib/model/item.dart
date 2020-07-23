@@ -1,4 +1,4 @@
-class BootpayItem {
+class Item {
   String itemName = '';
   int qty = 0;
   String unique = '';
@@ -7,9 +7,9 @@ class BootpayItem {
   String cat2 = '';
   String cat3 = '';
 
-  BootpayItem();
+  Item();
 
-  BootpayItem.fromJson(Map<String, dynamic> json) {
+  Item.fromJson(Map<String, dynamic> json) {
     itemName = json["item_name"];
     qty = json["qty"];
     unique = json["unique"];

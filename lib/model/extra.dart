@@ -1,4 +1,4 @@
-class BootpayExtra {
+class Extra {
   String startAt = '';
   String endAt = '';
   int expireMonth = 0;
@@ -15,9 +15,9 @@ class BootpayExtra {
   int escrow = 0;
   bool iosCloseButton = true;
 
-  BootpayExtra();
+  Extra();
 
-  BootpayExtra.fromJson(Map<String, dynamic> json) {
+  Extra.fromJson(Map<String, dynamic> json) {
     startAt = json["start_at"];
     endAt = json["end_at"];
     expireMonth = json["expire_month"];

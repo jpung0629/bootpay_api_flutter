@@ -119,66 +119,57 @@ class TestPageState extends State<TestPage> {
     );
   }
 
-  void goBootpayRequest(BuildContext context) async {
-    BootpayPayload payload = BootpayPayload();
-    payload.androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
-    payload.iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+  static Future<void> request(BuildContext context, Payload payload,
+      {User user,
+      List<Item> items,
+      Extra extra,
+      StringCallback onDone,
+      StringCallback onReady,
+      StringCallback onCancel,
+      StringCallback onError}) async {
 
-    payload.pg = 'danal';
-    payload.method = 'card';
-//    payload.methods = ['card', 'phone', 'vbank', 'bank'];
-    payload.name = 'testUser';
-    payload.price = 2000.0;
-    payload.orderId = DateTime.now().millisecondsSinceEpoch.toString();
-//    payload.params = {
-//      "callbackParam1" : "value12",
-//      "callbackParam2" : "value34",
-//      "callbackParam3" : "value56",
-//      "callbackParam4" : "value78",
-//    };
+    payload.applicationId = Platform.isIOS
+        ? payload.iosApplicationId
+        : payload.androidApplicationId;
 
-    BootpayUser user = BootpayUser();
-    user.username = "사용자 이름";
-    user.email = "user1234@gmail.com";
-    user.area = "서울";
-    user.phone = "010-1234-4567";
-    user.addr = '서울시 동작구 상도로 222';
+    if (user == null) user = User();
+    if (items == null) items = [];
+    if (extra == null) extra = Extra();
 
-    BootpayExtra extra = BootpayExtra();
-    extra.appScheme = 'bootpayFlutterSample';
+    Map<String, dynamic> params = {
+      "payload": payload.toJson(),
+      "user": user.toJson(),
+      "items": items.map((v) => v.toJson()).toList(),
+      "extra": extra.toJson()
+    };
 
-    BootpayItem item1 = BootpayItem();
-    item1.itemName = "미\"키's 마우스"; // 주문정보에 담길 상품명
-    item1.qty = 1; // 해당 상품의 주문 수량
-    item1.unique = "ITEM_CODE_MOUSE"; // 해당 상품의 고유 키
-    item1.price = 1000; // 상품의 가격
 
-    BootpayItem item2 = BootpayItem();
-    item2.itemName = "키보드"; // 주문정보에 담길 상품명
-    item2.qty = 1; // 해당 상품의 주문 수량
-    item2.unique = "ITEM_CODE_KEYBOARD"; // 해당 상품의 고유 키
-    item2.price = 1000; // 상품의 가격
-    List<BootpayItem> itemList = [item1, item2];
-
-    BootpayApi.request(
-      context,
-      payload,
-      extra: extra,
-      user: user,
-      items: itemList,
-      onDone: (String json) {
-        print('--- onDone: $json');
-      },
-      onReady: (String json) {
-        print('--- onReady: $json');
-      },
-      onCancel: (String json) {
-        print('--- onCancel: $json');
-      },
-      onError: (String json) {
-        print(' --- onError: $json');
-      },
+    Map<dynamic, dynamic> result = await _channel.invokeMethod(
+      "bootpayRequest",
+      params,
     );
+
+
+    String method = result["method"];
+    if (method == null) method = result["action"];
+
+    String message = result["message"];
+    if (message == null) message = result["msg"];
+
+
+
+    //confirm 생략
+    if (method == 'onDone' || method == 'BootpayDone') {
+      if (onDone != null) onDone(message);
+    } else if (method == 'onReady' || method == 'BootpayReady') {
+      if (onReady != null) onReady(message);
+    } else if (method == 'onCancel' || method == 'BootpayCancel') {
+      if (onCancel != null) onCancel(message);
+    } else if (method == 'onError' || method == 'BootpayError') {
+      if (onError != null) onError(message);
+    } else if (result['receipt_id'] != null && result['receipt_id'].isNotEmpty) {
+      if (onDone != null) onDone(jsonEncode(result));
+    }
   }
 }
 ```
