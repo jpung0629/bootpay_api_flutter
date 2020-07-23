@@ -1,3 +1,6 @@
+## 1.1.1
+* 출시 후 application_id가 비어있는 버그가 있다는 이슈처리를 위해, model class를 rename 함  
+
 ## 1.1.0
 * application_id가 비어있을 경우에 대한 예외처리가 추가되었습니다. 
 
