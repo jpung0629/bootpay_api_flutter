@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.bootpay:client_android_java:3.2.46@aar" type="AndroidModuleLibraryType">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aba1847a2bcfa61563fa536e9d6c3b82/jetified-client_android_java-3.2.46/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
